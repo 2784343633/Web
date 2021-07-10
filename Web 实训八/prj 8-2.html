@@ -1,0 +1,54 @@
+<!-- 202005729 谭富元 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计算任意区间内连续自然数的累加和</title>
+    <link rel="stylesheet" type="text/css" href="./css/prj 8-2.css">
+</head>
+
+<body>
+    <div id="base">
+        <h3 align=center>计算任意区间内连续自然数的累加和</h3>
+        <form method="post" action="">
+            <h3 align=center>定义区间</h3>
+            <center>
+                <label>起始数:</label>
+                <input type="text" name="start_num" id="start_num">
+                <label>终止数:</label>
+                <input type="text" name="end_num" id="end_num"><br>
+            </center>
+            <center>
+                <label>累加和:</label>
+                <input type="text" name="sum" id="sum" readonly><br><br>
+            </center>
+            <center>
+                <input type="button" value="计算" onclick="show();" /> &nbsp;&nbsp;
+                <input type="reset" name="reset" value="清空" />
+            </center>
+
+        </form>
+    </div>
+    <script type="text/javascript">
+        var start = document.getElementById("start_num")
+        var end = document.getElementById("end_num")
+        var sum = document.getElementById("sum")
+
+        function show() {
+            var sum_num = 0;
+            if (start.value == '' || end.value == '') {
+                alert("请输入数据！")
+            } else {
+                for (i = parseInt(start.value); i <= parseInt(end.value); i++) {
+                    sum_num = sum_num + i;
+                }
+                sum.value = sum_num;
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<base target="_blank">
+	<title>测试</title>
+	<style>
+		body{
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+	</style>
+</head>
+<body>
+	<button onclick="fun1()">调用函数</button>
+	<a href= "https://www.baidu.com/" id = "a"><mark>百度</mark></a>
+	<input type="text" name="" id = "text" value = "这是一段文本">
+	<button onclick="fun3()">调用另一个函数</button>
+	<button onclick="fun4()">打印99乘法表</button>
+	<script>
+		window.onload = fun5();
+		var date = new Date();
+		var day = date.getDay();
+		switch(day){
+			case 1: alert("周" + day); break;
+			case 2: alert("周" + day); break;
+			case 3: alert("周" + day); break;
+			case 4: alert("周" + day); break;
+			case 5: alert("周" + day); break;
+			case 6: alert("周" + day); break;
+			case 7: alert("周" + day); break;
+		}
+		function fun1(){
+			alert("Welcome to my Web!");
+			var p = document.getElementsByTagName("p")[0];
+			var f = p.parentNode;
+			f.removeChild(p); 
+		}
+		function fun2(num1, num2){
+			return num1 * num2;
+		}
+		function fun3(){
+			// document.getElementById("text").value = "Hello JavaScript!";
+			document.getElementById("text").setAttribute("value","Hello JavaScript!");
+			document.getElementById("a").style.textDecoration = "none";
+			var p = document.createElement("p")
+			p.style.color = "red";
+			p.innerHTML = "这是添加的p标签";
+			document.getElementsByTagName("body")[0].appendChild(p);
+		}
+		function fun4(){
+			var i = 1;
+			var j;
+			for(; i < 10; i ++){
+				for(j = 1; j <= i; j ++){
+					document.write(i + "*" + j + "=" + i * j + " ")
+					if (i == j) {
+						document.write("</br>");
+					}
+				}
+			}
+		}
+		function fun5(){
+			var cnt = 0;
+			var flag;
+			for(i = 2; i <= 100; i ++){
+				flag = true;
+				for(j = 2; j < i; j ++){
+					if(i % j == 0){
+						flag = false;
+						break;
+					}
+				}
+				if(flag){
+					document.write(i + " ");
+					cnt ++;
+					if(cnt % 5 == 0){
+						document.write("</br>");
+					}
+				}
+			}
+		}
+		var s = fun2(9,9);
+		alert(s);
+	</script>
+</body>
+</html>

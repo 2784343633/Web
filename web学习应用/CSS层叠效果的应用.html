@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CSS层叠效果的应用</title>
+	<style type="text/css">
+		div{
+			width: 300px;
+			height: 200px;
+		}
+		#first {
+			background-color: red;
+			position: absolute;
+			left:0;
+			z-index: 0;
+		}
+		#second {
+			background-color: green;
+			position: absolute;
+			left:200px;
+			z-index: 1;
+		}
+		#third {
+			background-color: blue;
+			position: absolute;
+			left: 400px;
+			z-index: 2;
+		}
+		#fourth {
+			background-color: orange;
+			position: absolute;
+			left:600px;
+			z-index: 3;
+		}
+	</style>
+</head>
+
+<body>
+	<div id = "first"></div>
+	<div id = "second"></div>
+	<div id = "third"></div>
+	<div id = "fourth"></div>
+</body>
+</html>

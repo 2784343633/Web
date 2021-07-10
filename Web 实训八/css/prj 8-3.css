@@ -1,0 +1,10 @@
+fieldset {
+    border: 10px ridge rgba(0, 128, 0, 0.404);
+    width: 40vw;
+    height: 24vw;
+    margin: 2.5vw 30vw;
+}
+
+form {
+    margin-top: 8vw;
+}

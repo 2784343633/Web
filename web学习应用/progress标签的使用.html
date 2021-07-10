@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress标签的使用</title>
+</head>
+
+<body>
+    <!-- 此段代码用于测试progress标签，拓展应用了间歇执行setInterval("函数名()",1000),以及clearInterval()来停止 -->
+    <p><mark>progress</mark>标签做时间秒数的进度条</p>
+    <input type="text" value="" id="inp">
+    <button onclick="int = window.clearInterval(int)">停止</button>
+    </br>
+    <progress value="0" max="60" id="pro">
+	<script type="text/javascript">
+		var int = self.setInterval("fun()",1000);
+		function fun(){
+			var date = new Date();
+			var time = date.toLocaleString();
+			var sec = date.getSeconds();
+			document.getElementById("pro").value = sec;
+			document.getElementById("inp").value = time;
+		}
+	</script>
+	
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>字符串加密解密</title>
+</head>
+<body>
+	<p>Ps：本页面可实现文字加密解密，仅需在文本框中输入想要加密的多个文字（默认‘中’）即可。<br>
+	(由于加密解密算法的不足，多个文字输入加密后解密可能与原文字不同）</p>
+	<hr>
+	<input type="text" id="talkwords" value="中">
+    <button onclick="encrypt()">加密</button>
+    <button onclick="decrypt()">解密</button>
+    <p id="result">这里显示加密后的内容</p>
+    <script type="text/javascript">
+    	var talkwords = document.getElementById("talkwords");
+    	var words = talkwords.value;
+    	
+    	var result = document.getElementById("result");
+    	var cipherTxt = result.innerHTML;
+
+    	var key = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+    	var b;
+    	var b1;
+    	var b2;
+    	var b3;
+    	
+    	function encrypt(){
+    	result.innerHTML = null;
+    	var word;
+    	var i = 0;
+    	words = talkwords.value;
+    	for (; i < words.length; i ++){
+    		word = words.charAt(i);
+    		b = word.charCodeAt(0);
+	    	b1 = b%36;
+	    	b = (b - b1)/36;
+	    	b2 = b%36;
+	    	b = (b - b2)/36;
+	    	b3 = b%36;
+	    	result.innerHTML += key.charAt(b3) + key.charAt(b2) + key.charAt(b1);
+    	}
+    }
+    	
+    	function decrypt(){
+    	talkwords.value = null;
+    	var cnt = 0;
+    	var code;
+    	var j = 0;
+    	var cipher;
+    	cipherTxt = result.innerHTML;
+    	for (; j < cipherTxt.length; j ++){
+    		cnt ++;
+    		cipher = cipherTxt.charAt(j);
+    		
+    		switch((cnt%3)){
+    			case 1: {b3 = key.indexOf(cipher);break;}
+	    		case 2: {b2 = key.indexOf(cipher);break;}
+	    		case 3: {b1 = key.indexOf(cipher);break;}
+    		}
+
+    		if((cnt % 3) == 0){
+    			code = b3*36*36+b2*36+b1;
+    			
+    			talkwords.value += String.fromCharCode(code);
+    		}
+    		
+    	}
+    }
+
+
+
+    </script>
+</body>
+</html>

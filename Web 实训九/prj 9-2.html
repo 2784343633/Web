@@ -1,0 +1,46 @@
+<!-- 202005729 谭富元 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鼠标动作捕获与响应</title>
+</head>
+
+<body align="center">
+    <div style="background-color: aquamarine; width: 50vw; height:4em; margin: 0 25vw;">
+        <h1>鼠标动作捕获与响应</h1>
+    </div>
+    <div style="background-color: aquamarine; width: 50vw; height: 50vh; margin: 5px 25vw; text-align: center;" onmouseover="func1()" onclick="func2()" ondblclick="func3()" onmouseout="func4()">
+        <input type="text" id="text" style="margin: 10px 0;">
+        <br>
+        <img src="./img/m1.jpeg" id='img'>
+    </div>
+    <script type="text/javascript">
+        function func1() {
+            document.getElementById("img").src = "./img/m2.jpeg";
+            document.getElementById("text").value = '';
+        }
+
+        function func2() {
+            document.getElementById("img").src = "./img/m3.jpeg";
+            document.getElementById("text").value = "单击鼠标";
+        }
+
+        function func3() {
+            document.getElementById("img").src = "./img/m4.jpeg";
+            document.getElementById("text").value = "双击鼠标";
+        }
+
+        function func4() {
+            document.getElementById("img").src = "./img/m1.jpeg";
+            document.getElementById("text").value = '';
+        }
+    </script>
+
+
+</body>
+
+</html>

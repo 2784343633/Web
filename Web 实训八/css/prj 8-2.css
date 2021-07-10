@@ -1,0 +1,6 @@
+#base {
+    width: 50vw;
+    height: 25vw;
+    border: groove 10px yellowgreen;
+    margin: 2.5vw 25vw;
+}
